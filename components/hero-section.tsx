@@ -43,7 +43,7 @@ export function HeroSection() {
         </div>
         <div className="flex-1 flex justify-center md:justify-end">
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary">
-            <Image src="/eu3.jpg" alt="Profile" fill className="object-cover object-center" priority />
+            <Image src="/eu.jpg" alt="Profile" fill className="object-cover object-center" priority />
           </div>
         </div>
       </div>
