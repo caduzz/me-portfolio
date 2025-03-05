@@ -25,13 +25,13 @@ export function SkillsSection() {
       id: 5,
       title: "Other Skills",
       icon: <Code className="h-6 w-6 text-primary" />,
-      skills: ["Git", "GitHub", "Docker", "CI/CD", "Jest", "Cypress", "Webpack"],
+      skills: ["Git", "GitHub", "Docker", "Jest", "Webpack"],
     },
     {
       id: 6,
       title: "Languages",
       icon: <Globe className="h-6 w-6 text-primary" />,
-      skills: ["Ingles (Basico)", "Espanhol (Intermediate)", "Portugues (Fluente)"],
+      skills: ["Ingles (Basico)", "Espanhol (Intermediário)"],
     },
   ]
 

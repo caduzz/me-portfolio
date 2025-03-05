@@ -3,6 +3,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Download, GraduationCap, Briefcase } from "lucide-react"
 
 export function AboutSection() {
+  const age = new Date().getFullYear() - 2003;
+  const experience = new Date().getFullYear() - 2022;
+
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container">
@@ -12,12 +15,12 @@ export function AboutSection() {
           <div>
             <h3 className="text-2xl font-semibold mb-4">Quem eu sou</h3>
             <p className="text-muted-foreground mb-4">
-            Olá, sou Carlos Eduardo, tenho 21 anos e sou estudante de Ciência da Computação na FACAPE.
+            Olá, sou Carlos Eduardo, tenho {age} anos e sou estudante de Ciência da Computação na FACAPE.
             Desde jovem, sempre fui fascinado por tecnologia e como ela pode transformar o mundo ao nosso redor.
             Foi essa curiosidade que me levou a seguir o caminho da programação.
             </p>
             <p className="text-muted-foreground mb-6">
-            Ao longo dos últimos 2 anos, tive a oportunidade de aprofundar meus conhecimentos como desenvolvedor,
+            Ao longo dos últimos {experience} anos, tive a oportunidade de aprofundar meus conhecimentos como desenvolvedor,
             tanto no front-end quanto no back-end, e me especializar em mobile.
             </p>
             <Button variant="outline" className="gap-2">
@@ -34,7 +37,7 @@ export function AboutSection() {
                     <GraduationCap className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-medium">Education</h4>
+                    <h4 className="text-xl font-medium">Ensino</h4>
                     <p className="text-muted-foreground mt-2">
                       Estudante de Ciência da Computação
                       <br />

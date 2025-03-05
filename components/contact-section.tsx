@@ -2,14 +2,26 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, MapPin, Phone } from "lucide-react"
+import { Toast, ToastAction, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "./ui/toast"
+
+
+function oneWeekAway() {
+	const now = new Date();
+	const inOneWeek = now.setDate(now.getDate() + 7);
+	return new Date(inOneWeek);
+}
 
 export function ContactSection() {
+	const eventDateRef = useRef(new Date());
+	const timerRef = useRef(0);
+
+  const [open, setOpen] = useState<boolean>(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,16 +36,24 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the form data to your backend or email service
-    console.log("Form submitted:", formData)
-    alert("Thank you for your message! I'll get back to you soon.")
     setFormData({
       name: "",
       email: "",
       subject: "",
       message: "",
     })
+
+    setOpen(false);
+    window.clearTimeout(timerRef.current);
+    timerRef.current = window.setTimeout(() => {
+      eventDateRef.current = oneWeekAway();
+      setOpen(true);
+    }, 100);
   }
+
+  useEffect(() => {
+		return () => clearTimeout(timerRef.current);
+	}, []);
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
@@ -145,7 +165,19 @@ export function ContactSection() {
           </Card>
         </div>
       </div>
+      <Toast className="" open={open} onOpenChange={setOpen}>
+        <ToastTitle>Envio de email</ToastTitle>
+        <ToastDescription>
+          Obrigado por enviar seu email
+        </ToastDescription>
+        <ToastAction
+          asChild
+          altText="Fechar toast"
+        >
+          <button>Close</button>
+        </ToastAction>
+      </Toast>
+      <ToastViewport />
     </section>
   )
 }
-

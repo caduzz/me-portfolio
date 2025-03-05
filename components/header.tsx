@@ -77,8 +77,8 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-16 z-50 bg-background p-6 animate-in slide-in-from-top-5">
-            <nav className="flex flex-col gap-6 text-lg">
+          <div className="md:hidden h-auto fixed inset-0 top-16 z-50 animate-in slide-in-from-top-5">
+            <nav className="flex flex-col gap-6 text-lg p-6 bg-background">
               <Link
                 href="#about"
                 className="text-muted-foreground hover:text-foreground transition-colors"
